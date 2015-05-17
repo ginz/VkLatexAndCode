@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+
+    "name": "VK enhanced messaging: LaTeX formulae and code",
+    "version": "0.1",
+    "description": "The extension lets you insert LaTeX formulae and code into the messages inside VK dialogs",
+    "icons": {
+        "128": "icon_128.png"
+    },
+    "permissions": [
+        "https://vk.com/"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://vk.com/*"],
+            "js": [
+                "EqEditor/eq_editor-lite-17.js",
+                "EqEditor/eq_config.js",
+                "highlight/highlight.pack.js",
+                "formulae.js"
+            ],
+            "css": ["EqEditor/equation-embed.css", "highlight/styles/default.css"]
+        }
+    ],
+    "web_accessible_resources": [
+        "formula.png",
+        "code.png",
+        "editor_popup.html",
+        "injected.js",
+        "EqEditor/eq_config.js",
+        "EqEditor/eq_editor-lite-17.js",
+        "highlight/highlight.pack.js"
+    ]
+}
