@@ -39,26 +39,3 @@ inject([
     scriptFromFile("highlight/highlight.pack.js"),
     scriptFromFile("injected.js")
 ]);
-
-// function injectScript(source) {
-// 	var script = document.createElement("script");
-// 	script.innerText = source;
-// 	document.body.appendChild(script);
-// }
-
-// function injectScriptFromFile(file) {
-// 	var script = document.createElement("script");
-// 	script.src = chrome.extension.getURL(file);
-// 	document.body.appendChild(script);
-// }
-
-
-
-// injectScript("var formulaImageUrl = '" + formulaImageUrl + "';");
-// injectScript("var codeImageUrl = '" + codeImageUrl + "';");
-
-
-// injectScriptFromFile("EqEditor/eq_editor-lite-17.js");
-// injectScriptFromFile("EqEditor/eq_config.js");
-// injectScriptFromFile("highlight/highlight.pack.js");
-// injectScriptFromFile("injected.js");

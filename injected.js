@@ -51,7 +51,7 @@ document.getElementById("submitFormula").onclick = function() {
     var formula = document.getElementById("latexInput").value;
     imageUrl = imageUrlByFormula(formula);
 
-    var editableNode = document.getElementById("im_editable" + cur.id);
+    var editableNode = document.getElementById("im_editable" + cur.peer);
         
     var formulaCode = FORMULA_PREFIX + window.btoa(formula);
     editableNode.innerHTML = formulaCode + "<br>" + imageUrl;
@@ -81,7 +81,7 @@ codePopup.innerHTML =
 "<form method='dialog'>" +
 "<input list='languagesList' placeholder='Language' id='languageInput'><br>" +
 "<table border='1'><tr><th>Code</th><th>Preview</th></tr>"+
-"<tr><td><textarea cols='80' rows='40' id='codeInput'></textarea></td><td valign='top'><pre><code id='codePreview'></code></pre></td></tr></table><br>"+
+"<tr><td><textarea cols='80' rows='40' id='codeInput'></textarea></td><td valign='top'><pre id='codePreview'><code></code></pre></td></tr></table><br>"+
 "<input type='submit' value='Send code snippet' id='submitCode'>" +
 "<input type='reset' value='Cancel' id='cancelCode'>" +
 "</form>";
@@ -93,7 +93,7 @@ document.getElementById("submitCode").onclick = function() {
     var code = document.getElementById("codeInput").value;
     var lang = document.getElementById("languageInput").value;
 
-    var editableNode = document.getElementById("im_editable" + cur.id);
+    var editableNode = document.getElementById("im_editable" + cur.peer);
     
     editableNode.innerHTML = CODE_PREFIX + window.btoa(lang + ';' + code);;
     
@@ -110,7 +110,7 @@ var codeNode = document.getElementById("codeInput");
 var previewNode = document.getElementById("codePreview");;
 var updatePreview = function() {
     previewNode.className = langNode.value;
-    previewNode.innerText = codeNode.value;
+    previewNode.firstChild.innerText = codeNode.value;
     hljs.highlightBlock(previewNode);
 };
 
@@ -231,9 +231,9 @@ function checkElements() {
             var code = langPlusCode.substring(delimiter + 1);
 
             var codeNode = document.createElement("code");
-            codeNode.className = lang;
             codeNode.innerText = code;
             var preNode = document.createElement("pre");
+            preNode.className = lang;
             preNode.appendChild(codeNode);
 
 

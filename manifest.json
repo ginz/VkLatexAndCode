@@ -14,9 +14,6 @@
         {
             "matches": ["https://vk.com/*"],
             "js": [
-                "EqEditor/eq_editor-lite-17.js",
-                "EqEditor/eq_config.js",
-                "highlight/highlight.pack.js",
                 "formulae.js"
             ],
             "css": ["EqEditor/equation-embed.css", "highlight/styles/default.css"]
